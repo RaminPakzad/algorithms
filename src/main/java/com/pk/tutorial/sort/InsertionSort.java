@@ -1,13 +1,12 @@
 package com.pk.tutorial.sort;
 
-import java.util.Arrays;
+import static com.pk.tutorial.Util.printArray;
 
 public class InsertionSort {
 	public static void main(String[] args) {
 		int[] arr = {3, 1, 4, 6, 9, 7};
 		insertionSort(arr);
-		Arrays.stream(arr).asLongStream().forEach(value -> System.out.print(value + " "));
-		System.out.println();
+		printArray(arr);
 	}
 
 	public static void insertionSort(int[] array) {
@@ -16,9 +15,11 @@ public class InsertionSort {
 			int i = j - 1;
 			while (i > -1 && array[i] > key) {
 				array[i + 1] = array[i];
+				printArray(array, "while");
 				i--;
 			}
 			array[i + 1] = key;
+			printArray(array, "for");
 		}
 	}
 }
